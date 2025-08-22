@@ -1,59 +1,34 @@
--- Smart Todo App Database Schema
--- MySQL 8.0+ 호환
-
--- 데이터베이스 생성
-CREATE DATABASE IF NOT EXISTS todoapp 
-CHARACTER SET utf8mb4 
-COLLATE utf8mb4_unicode_ci;
-
-USE todoapp;
+-- Todo App Database Schema & Sample Data
+-- 완전한 DB 스키마 및 기초데이터 백업파일
 
 -- 할 일 테이블
 CREATE TABLE IF NOT EXISTS todos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(500) NOT NULL COMMENT '할 일 제목',
-    description TEXT COMMENT '할 일 상세 설명',
-    completed BOOLEAN DEFAULT FALSE NOT NULL COMMENT '완료 여부',
-    priority ENUM('LOW', 'MEDIUM', 'HIGH') DEFAULT 'MEDIUM' NOT NULL COMMENT '우선순위',
-    due_date TIMESTAMP NULL COMMENT '마감일',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '생성일시',
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시',
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    priority VARCHAR(10) NOT NULL DEFAULT 'MEDIUM',
+    completed BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     
-    INDEX idx_todo_priority (priority),
-    INDEX idx_todo_completed (completed),
-    INDEX idx_todo_due_date (due_date),
-    INDEX idx_todo_created_at (created_at),
-    INDEX idx_todo_priority_completed (priority, completed)
-) COMMENT='할 일 목록';
+    INDEX idx_priority (priority),
+    INDEX idx_completed (completed)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 할 일 공유 테이블
-CREATE TABLE IF NOT EXISTS todo_shared_with (
-    todo_id BIGINT NOT NULL,
-    email VARCHAR(255) NOT NULL COMMENT '공유 대상 이메일',
-    
-    PRIMARY KEY (todo_id, email),
-    FOREIGN KEY (todo_id) REFERENCES todos(id) ON DELETE CASCADE,
-    
-    INDEX idx_shared_email (email)
-) COMMENT='할 일 공유 정보';
+-- 기존 데이터 삭제
+DELETE FROM todos;
 
--- 샘플 할 일 데이터
-INSERT INTO todos (title, description, completed, priority, due_date) VALUES
-('프로젝트 계획서 작성', '새로운 프로젝트의 상세 계획서를 작성해야 합니다.', false, 'HIGH', DATE_ADD(NOW(), INTERVAL 3 DAY)),
-('운동하기', '주 3회 30분씩 운동하기', false, 'MEDIUM', DATE_ADD(NOW(), INTERVAL 1 DAY)),
-('책 읽기', 'Clean Code 책 읽고 정리하기', false, 'LOW', DATE_ADD(NOW(), INTERVAL 7 DAY)),
-('장보기', '주말 장보기 - 야채, 과일, 생필품', false, 'MEDIUM', DATE_ADD(NOW(), INTERVAL 2 DAY)),
-('친구 만나기', '오랜만에 친구들과 만나서 식사하기', false, 'LOW', DATE_ADD(NOW(), INTERVAL 5 DAY)),
-('완료된 작업', '이미 완료된 할 일 예시', true, 'HIGH', DATE_SUB(NOW(), INTERVAL 1 DAY))
-ON DUPLICATE KEY UPDATE title=title;
-
--- 통계 조회 뷰
-CREATE OR REPLACE VIEW todo_stats AS
-SELECT 
-    COUNT(*) as total_count,
-    SUM(CASE WHEN completed = true THEN 1 ELSE 0 END) as completed_count,
-    SUM(CASE WHEN completed = false THEN 1 ELSE 0 END) as pending_count,
-    SUM(CASE WHEN priority = 'HIGH' AND completed = false THEN 1 ELSE 0 END) as high_priority_pending,
-    SUM(CASE WHEN DATE(due_date) = CURDATE() AND completed = false THEN 1 ELSE 0 END) as due_today,
-    SUM(CASE WHEN due_date < NOW() AND completed = false THEN 1 ELSE 0 END) as overdue_count
-FROM todos;
+-- 샘플 데이터 (손흥민 투두 리스트)
+INSERT INTO todos (title, description, priority, completed) VALUES
+('득점 연습', '왼발 슈팅 정확도 높이기 - 하루 100개', 'HIGH', false),
+('팬들과 소통', 'SNS로 팬들과 인사하고 응원 감사하기', 'LOW', false),
+('체력 훈련', '유산소 운동 30분 + 근력 운동 20분', 'HIGH', false),
+('영어 공부', '인터뷰 대비 영어 표현 연습하기', 'MEDIUM', false),
+('가족과 시간 보내기', '집에 있는 시간 늘리고 가족과 대화하기', 'LOW', false),
+('경기 분석', '다음 상대팀 경기 영상 분석하고 전술 연구하기', 'HIGH', false),
+('부상 예방', '스트레칭과 마사지로 몸 관리하기', 'MEDIUM', false),
+('차량 정리', '차 안 청소하고 정리하기', 'LOW', false),
+('패스 연습', '팀원들과 패스 정확도 향상 훈련', 'MEDIUM', false),
+('취미 활동', '영화 보면서 스트레스 해소하기', 'LOW', false),
+('멘탈 관리', '명상과 호흡법으로 집중력 향상하기', 'MEDIUM', false),
+('아침 식사', '영양사가 준비한 아침 식사 먹기', 'MEDIUM', true);
