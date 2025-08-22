@@ -95,25 +95,6 @@ mvn test
 <br />
 <br />
 
-## 🔌 API 엔드포인트
-
-http://localhost:8080/api
-
-- **GET** `/todos` - 할일 목록 조회
-- **POST** `/todos` - 새 할일 생성
-- **PUT** `/todos/{id}` - 할일 수정
-- **DELETE** `/todos/{id}` - 할일 삭제
-- **PATCH** `/todos/{id}/toggle` - 완료 상태 토글
-- **GET** `/todos/stats` - 우선순위별 통계
-
-<br />
-
-## 📚 API 문서
-
-- **Swagger UI**: `http://localhost:8080/swagger-ui.html`
-
-<br />
-
 ## 🔄 데이터베이스 초기화
 
 샘플 데이터를 다시 생성하려면:
@@ -138,7 +119,7 @@ mvn spring-boot:run
 
 # 🔌 API 엔드포인트
 
-http://localhost:8080/swagger-ui.html
+API 엔드포인트: http://localhost:8080/api
 
 - **GET** `/todos` - 할일 목록 조회
 - **POST** `/todos` - 새 할일 생성
