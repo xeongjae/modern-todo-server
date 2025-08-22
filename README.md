@@ -40,7 +40,10 @@ cd modern-todo-server
 
 ```bash
 # MySQL 접속
+# Password: 라고 뜨면 엔터 누르시면 됩니다
+# (별도로 패스워드를 설정하지 않았기 때문)
 mysql -u root -p
+
 
 # 데이터베이스 생성
 CREATE DATABASE todoapp CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
