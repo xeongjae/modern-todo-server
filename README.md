@@ -112,14 +112,14 @@ mvn spring-boot:run
 
 # 📚 API 명세서 (Swagger)
 
-- **Swagger UI**: `http://localhost:8080/swagger-ui.html`
+- http://localhost:8080/swagger-ui.html
 
 <br />
 <br />
 
 # 🔌 API 엔드포인트
 
-API 엔드포인트: http://localhost:8080/api
+- **API 엔드포인트**: `http://localhost:8080/api`
 
 - **GET** `/todos` - 할일 목록 조회
 - **POST** `/todos` - 새 할일 생성
