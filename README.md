@@ -175,6 +175,8 @@ modern-todo-server/
 ├── 📄 database_schema.sql                    # 데이터베이스 스키마 및 샘플 데이터
 └── 📄 README.md                              # 프로젝트 설명서
 ```
+<br />
+<br />
 
 # 📋 각 계층별 역할
 
