@@ -3,7 +3,7 @@
 <br />
 
 <p align="center">
-<img src="public/doFavicon.png" alt="로고" width="200"/>
+<img src="https://github.com/xeongjae/modern-todo-client/raw/main/public/doFavicon.png" alt="로고" width="200"/>
 </p>
 
 <p align="center">
