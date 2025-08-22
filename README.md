@@ -141,7 +141,7 @@ mvn spring-boot:run
 <br />
 <br />
 
-## 🗂️ 프로젝트 구조
+# 🗂️ 프로젝트 구조
 
 ```
 modern-todo-server/
@@ -176,7 +176,7 @@ modern-todo-server/
 └── 📄 README.md                              # 프로젝트 설명서
 ```
 
-### 📋 각 계층별 역할
+# 📋 각 계층별 역할
 
 #### **🏗️ Controller Layer (컨트롤러 계층)**
 
