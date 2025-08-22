@@ -97,7 +97,7 @@ mvn test
 
 ## 🔌 API 엔드포인트
 
-### 기본 URL: `http://localhost:8080/api`
+http://localhost:8080/api
 
 - **GET** `/todos` - 할일 목록 조회
 - **POST** `/todos` - 새 할일 생성
