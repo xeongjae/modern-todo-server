@@ -15,7 +15,7 @@
 <br />
 <br />
 
-# ⬇️ 실행 방법 메뉴얼
+# 📌 실행 방법 메뉴얼
 
 <br />
 
@@ -95,25 +95,6 @@ mvn test
 <br />
 <br />
 
-## 🔌 API 엔드포인트
-
-### 기본 URL: `http://localhost:8080/api`
-
-- **GET** `/todos` - 할일 목록 조회
-- **POST** `/todos` - 새 할일 생성
-- **PUT** `/todos/{id}` - 할일 수정
-- **DELETE** `/todos/{id}` - 할일 삭제
-- **PATCH** `/todos/{id}/toggle` - 완료 상태 토글
-- **GET** `/todos/stats` - 우선순위별 통계
-
-<br />
-
-## 📚 API 문서
-
-- **Swagger UI**: `http://localhost:8080/swagger-ui.html`
-
-<br />
-
 ## 🔄 데이터베이스 초기화
 
 샘플 데이터를 다시 생성하려면:
@@ -131,14 +112,14 @@ mvn spring-boot:run
 
 # 📚 API 명세서 (Swagger)
 
-- **Swagger UI**: `http://localhost:8080/swagger-ui.html`
+- http://localhost:8080/swagger-ui.html
 
 <br />
 <br />
 
 # 🔌 API 엔드포인트
 
-### 기본 URL: `http://localhost:8080/api`
+- **API 엔드포인트**: `http://localhost:8080/api`
 
 - **GET** `/todos` - 할일 목록 조회
 - **POST** `/todos` - 새 할일 생성
@@ -160,7 +141,7 @@ mvn spring-boot:run
 <br />
 <br />
 
-## 🗂️ 프로젝트 구조
+# 🗂️ 프로젝트 구조
 
 ```
 modern-todo-server/
@@ -194,8 +175,10 @@ modern-todo-server/
 ├── 📄 database_schema.sql                    # 데이터베이스 스키마 및 샘플 데이터
 └── 📄 README.md                              # 프로젝트 설명서
 ```
+<br />
+<br />
 
-### 📋 각 계층별 역할
+# 📋 각 계층별 역할
 
 #### **🏗️ Controller Layer (컨트롤러 계층)**
 
