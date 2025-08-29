@@ -23,47 +23,22 @@
     </properties>
     
     <dependencies>
-        <!-- Spring Boot Starters -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        
-        <!-- 🗄️ Spring Boot Data JPA Starter - 데이터베이스 접근을 위한 라이브러리들 -->
+       
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <!-- 
-              이 의존성은 다음 라이브러리들을 자동으로 포함합니다:
-              - Spring Data JPA (데이터 접근 추상화)
-              - Hibernate (JPA 구현체, ORM 프레임워크)
-              - Spring Data Commons
-              
-              🎯 JavaScript 개발자 관점:
-              - React: Prisma, TypeORM과 같은 ORM 라이브러리
-              - 자바: 데이터베이스와 자바 객체를 연결해주는 도구
-            -->
         </dependency>
         
-        <!-- 🗃️ MySQL Database - 영구 데이터베이스 (프로덕션용) -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
             <scope>runtime</scope>
-            <!-- 
-              MySQL은 가장 널리 사용되는 오픈소스 관계형 데이터베이스입니다.
-              
-              🎯 JavaScript 개발자 관점:
-              - React: PostgreSQL, MySQL과 같은 실제 데이터베이스
-              - 자바: 애플리케이션과 별도로 실행되는 영구 데이터베이스
-              
-              💡 MySQL의 장점:
-              - 데이터 영구 보존 (애플리케이션 재시작 후에도 유지)
-              - 실제 서비스와 동일한 환경
-              - 강력한 쿼리 기능과 인덱싱
-              - 대용량 데이터 처리 가능
-            -->
         </dependency>
         
         <dependency>
