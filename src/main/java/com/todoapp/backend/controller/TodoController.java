@@ -17,7 +17,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/todos")
 @Tag(name = "Todo API", description = "할 일 관리를 위한 REST API")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"}, allowCredentials = "false")
+@CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "false")
 public class TodoController {
 
     private final TodoService todoService;
